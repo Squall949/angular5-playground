@@ -1,0 +1,49 @@
+$long_length: 180px;
+$block-height: 50px;
+
+.report-config {
+  border-left: 2px solid darkgray;
+  border-right: 2px solid darkgray;
+  border-top: 2px solid darkgray;
+  border-bottom: 1px solid darkgray;
+
+  .mat-form-field-type-mat-select {
+    width: 80px;
+  }
+
+  .mat-form-field-type-mat-input {
+    width: 110px;
+  }
+
+  mat-form-field.long_item {
+    width: $long_length;
+  }
+
+  > div {
+    height: $block-height;
+    border-bottom: 1px solid darkgray;
+    box-sizing: border-box;
+
+    > span {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    > span.label {
+      font-weight: bold;
+    }
+
+    > span.timepicker_container {
+      display: inline-block;
+      width: 65px;
+    }
+  }
+
+  .date {
+    color: gray;
+  }
+
+  button {
+    margin-left: 20px;
+  }
+}

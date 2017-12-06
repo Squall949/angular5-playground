@@ -1,0 +1,112 @@
+$header-height: 48px;
+$row-height: 35px;
+
+.container {
+  // display: flex;
+  // flex-direction: column;
+  // max-height: 500px;
+  min-width: 300px;
+  margin-top: 10px;
+
+  > div {
+    height: $header-height;
+    line-height: $header-height;
+  }
+
+  > div:first-child {
+    color: darkblue;
+    font-weight: bold;
+  }
+
+  > div:nth-child(2) > span {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+
+  > div:nth-child(3) {
+    height: $row-height;
+    line-height: $row-height;
+    display: flex;
+    margin-top: 15px;
+
+    > div:first-child {
+        width: 126px;
+    }
+
+    > div:nth-child(2) {
+      border-left: 1px solid;
+      border-top: 1px solid;
+      border-right: 1px solid;
+      flex-grow: 1;
+      padding-left: 5px;
+      font-weight: bold;
+      background-color: #e9f4fc;
+    }
+  }
+}
+
+mat-form-field {
+  width: 80px;
+}
+
+.mat-table {
+  overflow: auto;
+  // width: 100%;
+  max-height: 500px;
+  border: 1px solid;
+
+  .mat-header-row, .mat-row {
+    padding: 0;
+    min-width: fit-content;
+    box-sizing: border-box;
+  }
+
+  .mat-row {
+    min-height: $row-height;
+
+    .mat-cell {
+      min-width: 120px;
+      width: 100%;
+      overflow: initial;
+      word-wrap: normal;
+    }
+  }
+
+  .mat-row .mat-cell, .mat-header-row .mat-header-cell {
+    // overflow: initial;
+    // word-wrap: initial;
+    text-align: right;
+    border-left: 1px solid gray;
+    height: $row-height;
+    line-height: $row-height;
+
+  }
+
+  .mat-header-row > .mat-header-cell {
+    background-color: #e9f4fc;
+    text-align: center;
+    height: $header-height;
+    line-height: $header-height;
+    color: black;
+    min-width: 120px;
+    width: 100%;
+    overflow: initial;
+    word-wrap: normal;
+  }
+
+  .mat-row > .mat-cell:first-child, .mat-header-row > .mat-header-cell:first-child {
+    min-width: 125px;
+    max-width: 125px;
+    border-left: none;
+  }
+
+  .mat-header-row > .mat-header-cell:first-child  {
+    background-color: #f4f9fe;
+    font-weight: bold;
+  }
+
+  .mat-row:nth-child(odd) > .mat-cell {
+    background-color: #f4f9fe;
+  }
+}

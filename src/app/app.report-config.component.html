@@ -1,0 +1,57 @@
+
+<div class="report-config">
+  <div><span class="label">Select from:</span><mat-form-field class="long_item">
+      <mat-select [(value)]="selected" (change)="onGroupChange($event)">
+        <mat-option value="{{item.group_id}}" *ngFor="let item of group;">{{item.group_name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div><span class="label">Report time:</span><mat-form-field>
+      <mat-select [(value)]="time_duration">
+        <mat-option value="period">Period</mat-option>
+        <mat-option value="range">Range</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select [(value)]="time_length">
+          <mat-option value="daily">Daily</mat-option>
+          <mat-option value="weekly">Weekly</mat-option>
+          <mat-option value="monthly">Monthly</mat-option>
+          <mat-option value="yearly">Yearly</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <span>(<mat-checkbox color="primary" [(ngModel)]="current_checked" (change)="onCurrentChange($event)">Current</mat-checkbox>)</span>
+      <span class="date">{{displayTime}}</span>
+      <span>~</span>
+      <span class="date" *ngIf="!displayTimeSetting">now</span>
+      <mat-form-field *ngIf="displayTimeSetting">
+        <input matInput [matDatepicker]="picker" disabled>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker disabled="false"></mat-datepicker>
+      </mat-form-field>
+      <span *ngIf="displayTimeSetting" class="timepicker_container"><ej-timepicker class="timepicker" [format]='formatString' [step]='interval'></ej-timepicker></span>
+      <span class="label">Unit prefix:</span><mat-form-field>
+          <mat-select [(value)]="unit_prefix">
+            <mat-option value="auto">Auto</mat-option>
+            <mat-option value="none">None</mat-option>
+            <mat-option value="k">K</mat-option>
+            <mat-option value="m">M</mat-option>
+            <mat-option value="g">G</mat-option>
+          </mat-select>
+        </mat-form-field>
+  </div>
+  <div>
+      <span class="label">Top-N:</span><mat-form-field class="long_item">
+          <mat-select [(value)]="selectedTopN">
+            <mat-option *ngFor="let item of topN;" value="{{item.index}}">{{item.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <span class="label">Counter:</span><mat-form-field>
+            <mat-select [(value)]="counter" (change)="onTopNChange($event)">
+              <mat-option value="1">bps</mat-option>
+              <mat-option value="2">pps</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+  </div>
+</div>

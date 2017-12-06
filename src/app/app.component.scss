@@ -1,0 +1,11 @@
+$color-blue: blue;
+$padding: 20px;
+
+.blue {
+  background-color: $color-blue;
+}
+
+app-root {
+  padding-left: $padding;
+  padding-right: $padding;
+}
